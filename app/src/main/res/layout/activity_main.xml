@@ -29,15 +29,21 @@
         android:layout_height="42pt"
         android:gravity="center"
         android:orientation="horizontal">
-
-
+        <ImageButton
+            android:id="@+id/imgbtnRemove"
+            android:layout_width="15pt"
+            android:layout_height="23pt"
+            android:layout_weight="0.1"
+            android:scaleType="fitXY"
+            android:background="#00FFFFFF"
+            app:srcCompat="@android:drawable/ic_delete" />
 
         <Button
             android:id="@+id/btnC"
             android:layout_width="0dp"
             android:layout_height="33pt"
             android:layout_margin="2pt"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:text="C"
             android:textSize="13pt"/>
@@ -71,6 +77,8 @@
             android:gravity="center"
             android:text="÷"
             android:textSize="13pt"/>
+
+
     </LinearLayout>
 
     <LinearLayout

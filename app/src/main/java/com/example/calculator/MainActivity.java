@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.Stack;
@@ -33,10 +34,13 @@ public class MainActivity extends AppCompatActivity {
     Button btnPoint;
     Button btnOpeningParanthese;
     Button btnClosingParanthese;
+    ImageButton imgbtnRemove;
     double firstValue;
     double secondValue;
 
     double output = 0;
+
+    int resultInOutput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +58,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "0");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
 
             }
         });
@@ -75,12 +80,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "1");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
@@ -95,12 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "2");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
@@ -114,12 +121,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "3");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn4.setOnClickListener(new View.OnClickListener() {
@@ -133,12 +141,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "4");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn5.setOnClickListener(new View.OnClickListener() {
@@ -152,12 +161,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "5");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn6.setOnClickListener(new View.OnClickListener() {
@@ -171,12 +181,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "6");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn7.setOnClickListener(new View.OnClickListener() {
@@ -190,12 +201,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "7");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn8.setOnClickListener(new View.OnClickListener() {
@@ -209,12 +221,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception ex) {
                 }
                 txtInput.setText(txtInput.getText() + "8");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btn9.setOnClickListener(new View.OnClickListener() {
@@ -229,12 +242,13 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 txtInput.setText(txtInput.getText() + "9");
-                try{
+                try {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
-                    txtOutput.setText(result+"");
-                }catch(Exception ex){}
+                    resultInOutput = evaluatePostfx(postfixExp);
+                    txtOutput.setText(resultInOutput + "");
+                } catch (Exception ex) {
+                }
             }
         });
         btnPoint.setOnClickListener(new View.OnClickListener() {
@@ -286,13 +300,45 @@ public class MainActivity extends AppCompatActivity {
         btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtInput.setText(txtInput.getText() + "(");
+                int lastIndex = txtInput.getText().toString().length();
+                lastIndex--;
+                String strInput = txtInput.getText().toString();
+                if (isNumicDigit(strInput.charAt(lastIndex))) {
+                    txtInput.setText(txtInput.getText() + "x(");
+                } else
+                    txtInput.setText(txtInput.getText() + "(");
+
             }
         });
         btnClosingParanthese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 txtInput.setText(txtInput.getText() + ")");
+            }
+        });
+        imgbtnRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String stringInput = txtInput.getText().toString();
+                int lastIndex = stringInput.length() - 1;
+                try {
+                    if (lastIndex >= 0)
+                        stringInput = stringInput.substring(0, lastIndex);
+                    if(lastIndex==0)txtOutput.setText("");
+                    txtInput.setText(stringInput);
+                } catch (Exception ex) {
+                }
+
+                try {
+
+
+                    String exp=stringInput  ;
+                    if(isOperator(stringInput.charAt(lastIndex-1)))exp= stringInput+"0";
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result + "");
+                } catch (Exception ex) {
+                }
             }
         });
 
@@ -509,6 +555,7 @@ public class MainActivity extends AppCompatActivity {
         btnPoint = findViewById(R.id.btnPoint);
         btnOpeningParanthese = findViewById(R.id.btnOpeningParanthese);
         btnClosingParanthese = findViewById(R.id.btnClosingParanthese);
+        imgbtnRemove = findViewById(R.id.imgbtnRemove);
 
 
     }
