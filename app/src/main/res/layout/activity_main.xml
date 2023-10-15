@@ -30,12 +30,30 @@
 
         <Button
             android:id="@+id/btnC"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="33pt"
             android:layout_margin="2pt"
-            android:layout_weight="0.9"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="C"
+            android:textSize="13pt"/>
+        <Button
+            android:id="@+id/btnOpeningParanthese"
+            android:layout_width="0dp"
+            android:layout_height="33pt"
+            android:layout_margin="2pt"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:text="("
+            android:textSize="13pt"/>
+        <Button
+            android:id="@+id/btnClosingParanthese"
+            android:layout_width="0dp"
+            android:layout_height="33pt"
+            android:layout_margin="2pt"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:text=")"
             android:textSize="13pt"/>
 
 
@@ -45,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="33pt"
             android:layout_margin="2pt"
-            android:layout_weight="0.05"
+            android:layout_weight="0.06"
             android:gravity="center"
             android:text="÷"
             android:textSize="13pt"/>

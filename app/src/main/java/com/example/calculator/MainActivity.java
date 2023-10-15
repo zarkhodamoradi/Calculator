@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity {
     TextView txtInput;
     TextView txtOutput;
@@ -29,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnEqual;
     Button btnPoint;
+    Button btnOpeningParanthese ;
+    Button btnClosingParanthese;
     double firstValue;
     double secondValue;
 
@@ -189,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         btnSum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+               // firstValue=Double.parseDouble(txtInput.getText().toString()) ;
                 txtInput.setText(txtInput.getText()+"+");
 
             }
@@ -197,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
         btnMunuise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+              //  firstValue=Double.parseDouble(txtInput.getText().toString()) ;
                 txtInput.setText(txtInput.getText()+"-");
 
             }
@@ -205,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+              //  firstValue=Double.parseDouble(txtInput.getText().toString()) ;
                 txtInput.setText(txtInput.getText()+"x");
 
             }
@@ -213,38 +217,44 @@ public class MainActivity extends AppCompatActivity {
         btnDivider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+             //   firstValue=Double.parseDouble(txtInput.getText().toString()) ;
                 txtInput.setText(txtInput.getText()+"÷");
 
             }
         });
 
 
+
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                char c;
-                if((int)firstValue == firstValue) {
-                    int index = (firstValue + "").length();
 
-                    secondValue = Double.parseDouble(txtInput.getText().toString().substring(index - 1));
-                    String exp = txtInput.getText().toString();
-                    c = exp.charAt(index - 2);
-                }
-                else {
-                    int index = (firstValue+"").length();
-                    secondValue = Double.parseDouble(txtInput.getText().toString().substring(index +1));
-                    String exp = txtInput.getText().toString();
-                     c = exp.charAt(index );
-                }
-                double res= calculation(firstValue,secondValue,c);
-                if ((int)res == res){
-                    int resaultIntegar=(int)res;
-                    txtInput.setText(resaultIntegar+"");
-                }
-                else
-                txtInput.setText(res+"");
-                output=res;
+                String exp = txtInput.getText().toString();
+                String postfixExp= infixToPostfix(exp);
+                int result  = evaluatePostfx(postfixExp);
+
+//                char c;
+//                if((int)firstValue == firstValue) {
+//                    int index = (firstValue + "").length();
+//
+//                    secondValue = Double.parseDouble(txtInput.getText().toString().substring(index - 1));
+//                    String exp = txtInput.getText().toString();
+//                    c = exp.charAt(index - 2);
+//                }
+//                else {
+//                    int index = (firstValue+"").length();
+//                    secondValue = Double.parseDouble(txtInput.getText().toString().substring(index +1));
+//                    String exp = txtInput.getText().toString();
+//                     c = exp.charAt(index );
+//                }
+//                double res= calculation(firstValue,secondValue,c);
+//                if ((int)result == result){
+//                    int resaultIntegar=(int)result;
+//                    txtInput.setText(resaultIntegar+"");
+//                }
+//                else
+                txtInput.setText(result+"");
+                output=result;
             }
         });
 
@@ -261,6 +271,162 @@ public class MainActivity extends AppCompatActivity {
         }
         return 0;
     }
+
+
+    private boolean isOperator(char c)
+    {
+        if (c == '+' || c == '-' || c == 'x' || c == '÷')
+            return true;
+        return false;
+    }
+
+   private boolean isOpeningParanthese(char c)
+    {
+        if (c == '{' || c == '[' || c == '(')
+            return true;
+        return false;
+    }
+
+    private boolean isClosingParanethese(char c)
+    {
+        if (c == '}' || c == ']' || c == ')')
+            return true;
+        return false;
+    }
+  private  int GetWeightOfOperator(char c)
+    {
+        int weight = -1;
+        if (c == 'x' || c == '÷')
+            weight = 2;
+        if (c == '+' || c == '-')
+            weight = 1;
+
+        return weight;
+    }
+   private int calculate(int operand1, int operand2, char Operator)
+    {
+        switch (Operator)
+        {
+            case '+':
+                return operand1 + operand2;
+
+            case '-':
+                return operand1 - operand2;
+
+            case 'x':
+                return operand1 * operand2;
+
+            case '÷':
+                return operand1 / operand2;
+
+            default:
+                return -1;
+
+
+
+        }
+    }
+    private boolean isNumicDigit(char c)
+    {
+        if (c >= '0' && c <= '9')
+            return true;
+        return false;
+    }
+  private  int evaluatePostfx(String str)
+    {
+        Stack<Integer> s= new Stack<>();
+
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (str.charAt(i) == ' ' || str.charAt(i) == ',')
+                continue;
+            else if (isOperator(str.charAt(i)))
+            {
+                int operand2 = s.pop();
+
+                int operand1 = s.pop();
+
+                s.push(calculate(operand1, operand2, str.charAt(i)));
+            }
+            else if (isNumicDigit(str.charAt(i)))
+            {
+                int operand = 0;
+                try{
+                while (isNumicDigit(str.charAt(i)) && i < str.length())
+                {
+                    operand = operand * 10 + (Integer.parseInt(str.charAt(i)+""));
+                    i++;
+                }}catch (Exception ex){}
+                i--;
+                s.push(operand);
+            }
+        }
+        int top = s.peek();
+        return top;
+    }
+    private boolean isHigherPrec(char topOfStack, char currentChracter)
+    {
+        if (GetWeightOfOperator(topOfStack) >= GetWeightOfOperator(currentChracter))
+        {
+            return true;
+        }
+        return false;
+    }
+    String infixToPostfix(String str)
+    {
+        Stack <Character> st = new Stack<>();
+        String res = "";
+
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (str.charAt(i) == ' ' || str.charAt(i)== ',')
+                continue;
+            else if (isOpeningParanthese(str.charAt(i)))
+            {
+                st.push(str.charAt(i));
+            }
+            else if (isNumicDigit(str.charAt(i)))
+            {
+                try{ while(isNumicDigit(str.charAt(i)) && (i< str.length())) {
+                    res = (res + str.charAt(i) + "");
+                    i++;
+
+                }}catch (Exception ex){}
+                res = res + " ";
+                i--;
+            }
+            else if (isOperator(str.charAt(i)))
+            {
+                if(!st.empty()){
+                    while (!st.empty() && isHigherPrec(st.peek(), str.charAt(i)) && !isOpeningParanthese(st.peek()))
+                    {
+                        res = (res + st.pop() + " ");
+
+                    }
+                }
+
+                st.push(str.charAt(i));
+            }
+            else if (isClosingParanethese(str.charAt(i)))
+            {
+                if(!st.empty())
+                while (!isOpeningParanthese(st.peek()) && !st.empty())
+                {
+                    res = (res + st.pop() + " ");
+
+                }
+            }
+        }
+
+        while (!st.empty())
+        {
+            res = (res + st.pop() + " ");
+
+        }
+        return res;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
     public void SetUpView() {
         txtInput = findViewById(R.id.txtInput);
         txtOutput = findViewById(R.id.txtOutput);
@@ -281,6 +447,9 @@ public class MainActivity extends AppCompatActivity {
         btnMunuise = findViewById(R.id.btnMinuse);
         btnEqual = findViewById(R.id.btnEqual);
         btnPoint = findViewById(R.id.btnPoint);
+        btnOpeningParanthese= findViewById(R.id.btnOpeningParanthese);
+        btnClosingParanthese= findViewById(R.id.btnClosingParanthese);
+
 
     }
 }
