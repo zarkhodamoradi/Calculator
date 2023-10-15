@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnEqual;
     Button btnPoint;
-    Button btnOpeningParanthese ;
+    Button btnOpeningParanthese;
     Button btnClosingParanthese;
     double firstValue;
     double secondValue;
 
-    double output=0;
+    double output = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +46,20 @@ public class MainActivity extends AppCompatActivity {
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"0");
+                txtInput.setText(txtInput.getText() + "0");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
 
             }
         });
@@ -60,126 +67,180 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"1");
-
+                txtInput.setText(txtInput.getText() + "1");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn2.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"2");
-
+                txtInput.setText(txtInput.getText() + "2");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
-                    txtInput.setText("");
-                    output=0;
-                }}catch(Exception ex){
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
+                        txtInput.setText("");
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"3");
-
+                txtInput.setText(txtInput.getText() + "3");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"4");
-
+                txtInput.setText(txtInput.getText() + "4");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"5");
-
+                txtInput.setText(txtInput.getText() + "5");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"6");
-
+                txtInput.setText(txtInput.getText() + "6");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"7");
-
+                txtInput.setText(txtInput.getText() + "7");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
-                txtInput.setText(txtInput.getText()+"8");
-
+                txtInput.setText(txtInput.getText() + "8");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
-                    if(output == Double.parseDouble("0"+(txtInput.getText().toString()))) {
+                try {
+                    if (output == Double.parseDouble("0" + (txtInput.getText().toString()))) {
                         txtInput.setText("");
-                        output=0;
-                    }}catch(Exception ex){
+                        output = 0;
+                    }
+                } catch (Exception ex) {
                 }
 
-                txtInput.setText(txtInput.getText()+"9");
-
+                txtInput.setText(txtInput.getText() + "9");
+                try{
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    int result = evaluatePostfx(postfixExp);
+                    txtOutput.setText(result+"");
+                }catch(Exception ex){}
             }
         });
         btnPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtInput.setText(txtInput.getText()+".");
+                txtInput.setText(txtInput.getText() + ".");
             }
         });
 
@@ -193,45 +254,45 @@ public class MainActivity extends AppCompatActivity {
         btnSum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // firstValue=Double.parseDouble(txtInput.getText().toString()) ;
-                txtInput.setText(txtInput.getText()+"+");
+                // firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+                txtInput.setText(txtInput.getText() + "+");
 
             }
         });
         btnMunuise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  firstValue=Double.parseDouble(txtInput.getText().toString()) ;
-                txtInput.setText(txtInput.getText()+"-");
+                //  firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+                txtInput.setText(txtInput.getText() + "-");
 
             }
         });
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  firstValue=Double.parseDouble(txtInput.getText().toString()) ;
-                txtInput.setText(txtInput.getText()+"x");
+                //  firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+                txtInput.setText(txtInput.getText() + "x");
 
             }
         });
         btnDivider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   firstValue=Double.parseDouble(txtInput.getText().toString()) ;
-                txtInput.setText(txtInput.getText()+"÷");
+                //   firstValue=Double.parseDouble(txtInput.getText().toString()) ;
+                txtInput.setText(txtInput.getText() + "÷");
 
             }
         });
-btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        txtInput.setText(txtInput.getText()+"(");
-    }
-});
+        btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtInput.setText(txtInput.getText() + "(");
+            }
+        });
         btnClosingParanthese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtInput.setText(txtInput.getText()+")");
+                txtInput.setText(txtInput.getText() + ")");
             }
         });
 
@@ -241,8 +302,8 @@ btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 String exp = txtInput.getText().toString();
-                String postfixExp= infixToPostfix(exp);
-                int result  = evaluatePostfx(postfixExp);
+                String postfixExp = infixToPostfix(exp);
+                int result = evaluatePostfx(postfixExp);
 
 //                char c;
 //                if((int)firstValue == firstValue) {
@@ -264,48 +325,50 @@ btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
 //                    txtInput.setText(resaultIntegar+"");
 //                }
 //                else
-                txtInput.setText(result+"");
-                output=result;
+                txtInput.setText(result + "");
+                txtOutput.setText("");
+                output = result;
             }
         });
 
 
     }
 
-    private double calculation(double firstValue,double secondValue , char operator){
+    private double calculation(double firstValue, double secondValue, char operator) {
 
-        switch (operator){
-            case '+':return (firstValue+secondValue) ;
-            case '-':return (firstValue-secondValue);
-            case 'x':return (firstValue*secondValue);
-            case '÷':return (firstValue/secondValue);
+        switch (operator) {
+            case '+':
+                return (firstValue + secondValue);
+            case '-':
+                return (firstValue - secondValue);
+            case 'x':
+                return (firstValue * secondValue);
+            case '÷':
+                return (firstValue / secondValue);
         }
         return 0;
     }
 
 
-    private boolean isOperator(char c)
-    {
+    private boolean isOperator(char c) {
         if (c == '+' || c == '-' || c == 'x' || c == '÷')
             return true;
         return false;
     }
 
-   private boolean isOpeningParanthese(char c)
-    {
+    private boolean isOpeningParanthese(char c) {
         if (c == '{' || c == '[' || c == '(')
             return true;
         return false;
     }
 
-    private boolean isClosingParanethese(char c)
-    {
+    private boolean isClosingParanethese(char c) {
         if (c == '}' || c == ']' || c == ')')
             return true;
         return false;
     }
-  private  int GetWeightOfOperator(char c)
-    {
+
+    private int GetWeightOfOperator(char c) {
         int weight = -1;
         if (c == 'x' || c == '÷')
             weight = 2;
@@ -314,10 +377,9 @@ btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
 
         return weight;
     }
-   private int calculate(int operand1, int operand2, char Operator)
-    {
-        switch (Operator)
-        {
+
+    private int calculate(int operand1, int operand2, char Operator) {
+        switch (Operator) {
             case '+':
                 return operand1 + operand2;
 
@@ -334,40 +396,36 @@ btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
                 return -1;
 
 
-
         }
     }
-    private boolean isNumicDigit(char c)
-    {
+
+    private boolean isNumicDigit(char c) {
         if (c >= '0' && c <= '9')
             return true;
         return false;
     }
-  private  int evaluatePostfx(String str)
-    {
-        Stack<Integer> s= new Stack<>();
 
-        for (int i = 0; i < str.length(); i++)
-        {
+    private int evaluatePostfx(String str) {
+        Stack<Integer> s = new Stack<>();
+
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == ' ' || str.charAt(i) == ',')
                 continue;
-            else if (isOperator(str.charAt(i)))
-            {
+            else if (isOperator(str.charAt(i))) {
                 int operand2 = s.pop();
 
                 int operand1 = s.pop();
 
                 s.push(calculate(operand1, operand2, str.charAt(i)));
-            }
-            else if (isNumicDigit(str.charAt(i)))
-            {
+            } else if (isNumicDigit(str.charAt(i))) {
                 int operand = 0;
-                try{
-                while (isNumicDigit(str.charAt(i)) && i < str.length())
-                {
-                    operand = operand * 10 + (Integer.parseInt(str.charAt(i)+""));
-                    i++;
-                }}catch (Exception ex){}
+                try {
+                    while (isNumicDigit(str.charAt(i)) && i < str.length()) {
+                        operand = operand * 10 + (Integer.parseInt(str.charAt(i) + ""));
+                        i++;
+                    }
+                } catch (Exception ex) {
+                }
                 i--;
                 s.push(operand);
             }
@@ -375,62 +433,53 @@ btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
         int top = s.peek();
         return top;
     }
-    private boolean isHigherPrec(char topOfStack, char currentChracter)
-    {
-        if (GetWeightOfOperator(topOfStack) >= GetWeightOfOperator(currentChracter))
-        {
+
+    private boolean isHigherPrec(char topOfStack, char currentChracter) {
+        if (GetWeightOfOperator(topOfStack) >= GetWeightOfOperator(currentChracter)) {
             return true;
         }
         return false;
     }
-    String infixToPostfix(String str)
-    {
-        Stack <Character> st = new Stack<>();
+
+    String infixToPostfix(String str) {
+        Stack<Character> st = new Stack<>();
         String res = "";
 
-        for (int i = 0; i < str.length(); i++)
-        {
-            if (str.charAt(i) == ' ' || str.charAt(i)== ',')
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ' ' || str.charAt(i) == ',')
                 continue;
-            else if (isOpeningParanthese(str.charAt(i)))
-            {
+            else if (isOpeningParanthese(str.charAt(i))) {
                 st.push(str.charAt(i));
-            }
-            else if (isNumicDigit(str.charAt(i)))
-            {
-                try{ while(isNumicDigit(str.charAt(i)) && (i< str.length())) {
-                    res = (res + str.charAt(i) + "");
-                    i++;
+            } else if (isNumicDigit(str.charAt(i))) {
+                try {
+                    while (isNumicDigit(str.charAt(i)) && (i < str.length())) {
+                        res = (res + str.charAt(i) + "");
+                        i++;
 
-                }}catch (Exception ex){}
+                    }
+                } catch (Exception ex) {
+                }
                 res = res + " ";
                 i--;
-            }
-            else if (isOperator(str.charAt(i)))
-            {
-                if(!st.empty()){
-                    while (!st.empty() && isHigherPrec(st.peek(), str.charAt(i)) && !isOpeningParanthese(st.peek()))
-                    {
+            } else if (isOperator(str.charAt(i))) {
+                if (!st.empty()) {
+                    while (!st.empty() && isHigherPrec(st.peek(), str.charAt(i)) && !isOpeningParanthese(st.peek())) {
                         res = (res + st.pop() + " ");
 
                     }
                 }
 
                 st.push(str.charAt(i));
-            }
-            else if (isClosingParanethese(str.charAt(i)))
-            {
-                if(!st.empty())
-                while (!isOpeningParanthese(st.peek()) && !st.empty())
-                {
-                    res = (res + st.pop() + " ");
+            } else if (isClosingParanethese(str.charAt(i))) {
+                if (!st.empty())
+                    while (!isOpeningParanthese(st.peek()) && !st.empty()) {
+                        res = (res + st.pop() + " ");
 
-                }
+                    }
             }
         }
 
-        while (!st.empty())
-        {
+        while (!st.empty()) {
             res = (res + st.pop() + " ");
 
         }
@@ -458,8 +507,8 @@ btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
         btnMunuise = findViewById(R.id.btnMinuse);
         btnEqual = findViewById(R.id.btnEqual);
         btnPoint = findViewById(R.id.btnPoint);
-        btnOpeningParanthese= findViewById(R.id.btnOpeningParanthese);
-        btnClosingParanthese= findViewById(R.id.btnClosingParanthese);
+        btnOpeningParanthese = findViewById(R.id.btnOpeningParanthese);
+        btnClosingParanthese = findViewById(R.id.btnClosingParanthese);
 
 
     }
