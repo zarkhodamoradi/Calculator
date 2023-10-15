@@ -222,7 +222,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        txtInput.setText(txtInput.getText()+"(");
+    }
+});
+        btnClosingParanthese.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtInput.setText(txtInput.getText()+")");
+            }
+        });
 
 
         btnEqual.setOnClickListener(new View.OnClickListener() {
