@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     double output = 0;
 
-    int resultInOutput;
+    double resultInOutput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -105,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -125,7 +129,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -145,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -165,7 +173,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -185,7 +195,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -205,7 +217,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -225,7 +239,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -246,7 +262,9 @@ public class MainActivity extends AppCompatActivity {
                     String exp = txtInput.getText().toString();
                     String postfixExp = infixToPostfix(exp);
                     resultInOutput = evaluatePostfx(postfixExp);
-                    txtOutput.setText(resultInOutput + "");
+                    if ((int) resultInOutput == resultInOutput)
+                        txtOutput.setText((int) resultInOutput + "");
+                    else txtOutput.setText(resultInOutput + "");
                 } catch (Exception ex) {
                 }
             }
@@ -300,13 +318,28 @@ public class MainActivity extends AppCompatActivity {
         btnOpeningParanthese.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int lastIndex = txtInput.getText().toString().length();
-                lastIndex--;
-                String strInput = txtInput.getText().toString();
-                if (isNumicDigit(strInput.charAt(lastIndex))) {
-                    txtInput.setText(txtInput.getText() + "x(");
-                } else
+                String strInput = "";
+                int lastIndex = 0;
+                try {
+
+                    lastIndex = txtInput.getText().toString().length();
+
+
+                    lastIndex--;
+
+                    strInput = txtInput.getText().toString();
+
+
+                } catch (Exception ex) {
+                }
+                if (lastIndex != -1 && lastIndex != 0) {
+                    if (isNumicDigit(strInput.charAt(lastIndex)))
+                        txtInput.setText(txtInput.getText() + "x(");
+                    else
+                        txtInput.setText(txtInput.getText() + "(");
+                }  else
                     txtInput.setText(txtInput.getText() + "(");
+
 
             }
         });
@@ -324,7 +357,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     if (lastIndex >= 0)
                         stringInput = stringInput.substring(0, lastIndex);
-                    if(lastIndex==0)txtOutput.setText("");
+                    if (lastIndex == 0) txtOutput.setText("");
                     txtInput.setText(stringInput);
                 } catch (Exception ex) {
                 }
@@ -332,10 +365,10 @@ public class MainActivity extends AppCompatActivity {
                 try {
 
 
-                    String exp=stringInput  ;
-                    if(isOperator(stringInput.charAt(lastIndex-1)))exp= stringInput+"0";
+                    String exp = stringInput;
+                    if (isOperator(stringInput.charAt(lastIndex - 1))) exp = stringInput + "0";
                     String postfixExp = infixToPostfix(exp);
-                    int result = evaluatePostfx(postfixExp);
+                    double result = evaluatePostfx(postfixExp);
                     txtOutput.setText(result + "");
                 } catch (Exception ex) {
                 }
@@ -346,10 +379,16 @@ public class MainActivity extends AppCompatActivity {
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double result = 0;
+                try {
+                    String exp = txtInput.getText().toString();
+                    String postfixExp = infixToPostfix(exp);
+                    result = evaluatePostfx(postfixExp);
+                    int res = 0;
+                } catch (Exception ex) {
 
-                String exp = txtInput.getText().toString();
-                String postfixExp = infixToPostfix(exp);
-                int result = evaluatePostfx(postfixExp);
+                }
+
 
 //                char c;
 //                if((int)firstValue == firstValue) {
@@ -371,9 +410,14 @@ public class MainActivity extends AppCompatActivity {
 //                    txtInput.setText(resaultIntegar+"");
 //                }
 //                else
-                txtInput.setText(result + "");
-                txtOutput.setText("");
-                output = result;
+                try {
+                    if ((int) result == result) txtInput.setText((int) result + "");
+                    else txtInput.setText(result + "");
+                    txtOutput.setText("");
+                    output = result;
+                } catch (Exception ex) {
+                }
+
             }
         });
 
@@ -424,7 +468,7 @@ public class MainActivity extends AppCompatActivity {
         return weight;
     }
 
-    private int calculate(int operand1, int operand2, char Operator) {
+    private double calculate(double operand1, double operand2, char Operator) {
         switch (Operator) {
             case '+':
                 return operand1 + operand2;
@@ -446,27 +490,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean isNumicDigit(char c) {
-        if (c >= '0' && c <= '9')
+        if ((c >= '0' && c <= '9') || c == '.')
             return true;
         return false;
     }
 
-    private int evaluatePostfx(String str) {
-        Stack<Integer> s = new Stack<>();
+    private double evaluatePostfx(String str) {
+        Stack<Double> s = new Stack<>();
 
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == ' ' || str.charAt(i) == ',')
                 continue;
             else if (isOperator(str.charAt(i))) {
-                int operand2 = s.pop();
+                double operand2 = s.pop();
 
-                int operand1 = s.pop();
+                double operand1 = s.pop();
 
                 s.push(calculate(operand1, operand2, str.charAt(i)));
             } else if (isNumicDigit(str.charAt(i))) {
-                int operand = 0;
+                double operand = 0;
+                double friction = 0;
                 try {
                     while (isNumicDigit(str.charAt(i)) && i < str.length()) {
+                        if (str.charAt(i) == '.') {
+                            i++;
+                            int counter = 0;
+                            while (isNumicDigit(str.charAt(i)) && i < str.length()) {
+                                friction = friction * 10 + (Integer.parseInt(str.charAt(i) + ""));
+                                i++;
+                                counter++;
+                            }
+                            friction = friction / (Math.pow(10, counter));
+                            operand = operand + friction;
+                        }
                         operand = operand * 10 + (Integer.parseInt(str.charAt(i) + ""));
                         i++;
                     }
@@ -476,7 +532,7 @@ public class MainActivity extends AppCompatActivity {
                 s.push(operand);
             }
         }
-        int top = s.peek();
+        double top = s.peek();
         return top;
     }
 
